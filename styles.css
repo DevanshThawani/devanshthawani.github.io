@@ -1,15 +1,15 @@
 :root{
   --bg: #0b1020;
+  --panel: rgba(255,255,255,.06);
   --stroke: rgba(255,255,255,.10);
   --text: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.68);
   --muted2: rgba(255,255,255,.52);
+  --accent: #8b5cf6;
+  --accent2:#22d3ee;
   --shadow: 0 20px 70px rgba(0,0,0,.45);
   --r: 18px;
   --max: 980px;
-
-  --a1:#8b5cf6;
-  --a2:#22d3ee;
 }
 
 *{ box-sizing:border-box; }
@@ -73,24 +73,21 @@ a:hover{ text-decoration:underline; text-underline-offset: 5px; }
   letter-spacing: .2px;
 }
 
-/* FIXED HERO LINKS LAYOUT */
-.heroLinks{
+/* LINKS ROW — keep it exactly like the original aesthetic */
+.links{
   margin-top: 14px;
-  display:flex;
-  flex-direction: column;
-  align-items:center;
-  gap: 10px;
-}
-
-.btnRow{
   display:flex;
   justify-content:center;
   gap: 10px;
   flex-wrap:wrap;
+  align-items:center;
+  color: var(--muted2);
+  font-weight: 600;
 }
 
-.emailLine{
-  max-width: 360px;
+/* Fix: email never breaks layout */
+.email{
+  max-width: 220px;
   overflow:hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -98,24 +95,23 @@ a:hover{ text-decoration:underline; text-underline-offset: 5px; }
   font-weight: 600;
 }
 
-/* button-style links */
-.btnLink{
-  padding: 9px 14px;
+/* Button-like link styling (LinkedIn/Resume/GitHub) */
+.linkBtn{
+  padding: 8px 14px;
   border-radius: 999px;
   border: 1px solid var(--stroke);
   background: rgba(255,255,255,.04);
   font-weight: 700;
   color: var(--muted);
-  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+  transition: transform .15s ease, background .15s ease;
   text-decoration: none !important;
 }
-.btnLink:hover{
-  background: rgba(255,255,255,.08);
+.linkBtn:hover{
   transform: translateY(-1px);
+  background: rgba(255,255,255,.08);
   color: var(--text);
-  border-color: rgba(255,255,255,.16);
 }
-.btnLink.primary{
+.linkBtn.primary{
   border-color: rgba(139,92,246,.35);
   background: linear-gradient(135deg, rgba(139,92,246,.35), rgba(34,211,238,.25));
   color: rgba(255,255,255,.95);
@@ -269,5 +265,5 @@ a:hover{ text-decoration:underline; text-underline-offset: 5px; }
 @media (max-width: 620px){
   .row{ flex-direction:column; }
   .right{ align-self:flex-start; }
-  .emailLine{ max-width: 92vw; }
+  .email{ max-width: 100%; }
 }
