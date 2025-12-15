@@ -1,99 +1,572 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Devansh Thawani — ML Engineer</title>
+  <meta name="description" content="Devansh Thawani — ML Engineer. Experience, projects, certifications." />
+  <meta name="theme-color" content="#070A12" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    :root{
+      --bg:#070A12;
+      --panel: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.12);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.60);
+      --muted2: rgba(255,255,255,.45);
+      --a1: #22d3ee;
+      --a2: #a78bfa;
+      --a3: #34d399;
+      --shadow: 0 26px 90px rgba(0,0,0,.55);
+      --r: 20px;
+      --max: 1080px;
+    }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(900px 600px at 12% 8%, rgba(167,139,250,.10), transparent 60%),
+                  radial-gradient(900px 650px at 85% 14%, rgba(34,211,238,.10), transparent 60%),
+                  radial-gradient(800px 600px at 50% 105%, rgba(52,211,153,.08), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      overflow-x:hidden;
+    }
+
+    /* animated neural graph canvas */
+    #nn{
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* subtle grain overlay */
+    .grain{
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+      opacity: .22;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration: underline; text-underline-offset: 6px; }
+
+    .wrap{
+      width: min(var(--max), 92vw);
+      margin: 0 auto;
+      padding: 44px 0 70px;
+    }
+
+    /* Top bar */
+    .top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap: 16px;
+      padding: 14px 16px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.03);
+      border-radius: 999px;
+      box-shadow: 0 12px 50px rgba(0,0,0,.30);
+      backdrop-filter: blur(10px);
+    }
+
+    .sig{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, var(--a1), transparent 55%),
+                  radial-gradient(circle at 60% 60%, var(--a2), transparent 55%),
+                  rgba(255,255,255,.18);
+      box-shadow: 0 0 22px rgba(34,211,238,.25);
+      flex: 0 0 auto;
+    }
+    .sig span{
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+      max-width: 44vw;
+    }
+
+    .nav{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .pill{
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-weight: 700;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .pill:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.16);
+      color: var(--text);
+      text-decoration:none;
+    }
+
+    /* Hero */
+    .hero{
+      margin-top: 32px;
+      padding: 28px 22px;
+      border-radius: var(--r);
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow:hidden;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-120px -140px auto auto;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle at 30% 30%, rgba(34,211,238,.25), transparent 60%),
+                  radial-gradient(circle at 65% 60%, rgba(167,139,250,.18), transparent 62%);
+      filter: blur(18px);
+      opacity:.9;
+      transform: rotate(18deg);
+      pointer-events:none;
+    }
+
+    .name{
+      font-size: clamp(40px, 5.2vw, 72px);
+      font-weight: 900;
+      letter-spacing: -1.2px;
+      line-height: 1.02;
+      margin: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(255,255,255,.62));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+    }
+    .headline{
+      margin-top: 12px;
+      max-width: 70ch;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+    .mono{
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      color: rgba(255,255,255,.55);
+      margin-top: 16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      align-items:center;
+    }
+    .kv{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+    .kv b{ color: rgba(255,255,255,.82); font-weight: 700; }
+
+    /* action row */
+    .actions{
+      margin-top: 18px;
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .btn{
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      font-weight: 800;
+      color: var(--text);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.07);
+      border-color: rgba(255,255,255,.18);
+      text-decoration:none;
+    }
+    .btn.primary{
+      border-color: rgba(34,211,238,.28);
+      background: linear-gradient(135deg, rgba(34,211,238,.22), rgba(167,139,250,.18));
+    }
+    .email{
+      max-width: 260px;
+      overflow:hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: rgba(255,255,255,.62);
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    /* Sections */
+    .grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 14px;
+      align-items:start;
+    }
+
+    .card{
+      border-radius: var(--r);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      box-shadow: 0 18px 70px rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+      padding: 18px 18px 16px;
+      overflow:hidden;
+      position: relative;
+    }
+
+    .cardTitle{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .cardTitle h2{
+      margin:0;
+      font-size: 13px;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.62);
+      font-weight: 900;
+    }
+    .badge{
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      color: rgba(255,255,255,.55);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 6px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .row{
+      padding: 12px 0;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .row:first-of-type{ border-top: none; padding-top: 6px; }
+    .line1{
+      display:flex;
+      justify-content:space-between;
+      gap: 10px;
+      align-items:flex-start;
+    }
+    .roleLine{
+      font-weight: 850;
+      letter-spacing: -0.2px;
+    }
+    .time{
+      color: rgba(255,255,255,.55);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .sub{
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.6;
+    }
+
+    .tags{
+      margin-top: 10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+    }
+    .tag{
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255,255,255,.68);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+    .tag.cyan{ border-color: rgba(34,211,238,.22); }
+    .tag.violet{ border-color: rgba(167,139,250,.22); }
+    .tag.green{ border-color: rgba(52,211,153,.22); }
+
+    .footer{
+      margin-top: 22px;
+      text-align:center;
+      color: rgba(255,255,255,.45);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12px;
+    }
+
+    @media (max-width: 880px){
+      .grid{ grid-template-columns: 1fr; }
+      .sig span{ max-width: 60vw; }
+    }
+  </style>
 </head>
-
 <body>
+  <canvas id="nn"></canvas>
+  <div class="grain" aria-hidden="true"></div>
 
-  <main class="container">
+  <div class="wrap">
+    <div class="top">
+      <div class="sig">
+        <div class="dot" aria-hidden="true"></div>
+        <span>status: shipping models · focus: CV / YOLO · location: Melbourne</span>
+      </div>
+      <div class="nav">
+        <a class="pill" href="#experience">Experience</a>
+        <a class="pill" href="#projects">Projects</a>
+        <a class="pill" href="#certs">Certifications</a>
+      </div>
+    </div>
 
-    <!-- HERO -->
     <section class="hero">
-      <h1>Devansh Thawani</h1>
-      <p class="subtitle">
-        Machine Learning Engineer focused on computer vision,
-        YOLO pipelines, and production-ready AI systems.
-      </p>
+      <h1 class="name">Devansh Thawani</h1>
+      <div class="headline">
+        I build reliable ML systems end-to-end — from dataset curation and training to ONNX export and inference validation.
+        Currently working with <b>Highlighter SDK</b> and <b>YOLO</b>.
+      </div>
 
-      <div class="links">
-        <a href="https://www.linkedin.com/in/devansh-thawani" target="_blank">LinkedIn</a>
-        <a href="assets/Devansh_Thawani_Resume.pdf" target="_blank">Resume</a>
-        <a href="mailto:thawanidevansh@gmail.com">Email</a>
+      <div class="mono">
+        <span class="kv"><b>stack</b> Python · YOLOv8 · ONNX · OpenCV</span>
+        <span class="kv"><b>focus</b> CV · MLOps · model reliability</span>
+      </div>
+
+      <div class="actions">
+        <a class="btn" href="https://www.linkedin.com/in/devansh-thawani" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="btn primary" href="assets/Devansh_Thawani_Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+        <a class="email" href="mailto:thawanidevansh@gmail.com" title="thawanidevansh@gmail.com">thawanidevansh@gmail.com</a>
+        <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
-    <section class="block">
-      <h2>Experience</h2>
+    <section class="grid">
+      <div class="card" id="experience">
+        <div class="cardTitle">
+          <h2>Experience</h2>
+          <span class="badge">deployments</span>
+        </div>
 
-      <div class="item">
-        <span class="role">ML Engineer</span>
-        <span class="meta">Silverpond · 2025 — Present</span>
-        <p>Computer vision model training and inference using Highlighter SDK and YOLO.</p>
+        <div class="row">
+          <div class="line1">
+            <div class="roleLine">ML Engineer · Silverpond</div>
+            <div class="time">2025 → now</div>
+          </div>
+          <div class="sub">Computer vision training + inference workflows using Highlighter SDK and YOLO.</div>
+          <div class="tags">
+            <span class="tag cyan">Highlighter</span>
+            <span class="tag cyan">YOLO</span>
+            <span class="tag violet">ONNX</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="line1">
+            <div class="roleLine">ML Engineer · BeDelighted</div>
+            <div class="time">2024 → 2025</div>
+          </div>
+          <div class="sub">Recommenders, NLP pipelines, and analytics that support product decisions.</div>
+          <div class="tags">
+            <span class="tag violet">Recommenders</span>
+            <span class="tag violet">NLP</span>
+            <span class="tag green">SQL</span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="line1">
+            <div class="roleLine">Assistant Restaurant Manager · Hungry Jack’s</div>
+            <div class="time">2022 → now</div>
+          </div>
+          <div class="sub">Operational optimisation + forecasting using real-world business constraints.</div>
+          <div class="tags">
+            <span class="tag green">Ops analytics</span>
+            <span class="tag green">Forecasting</span>
+          </div>
+        </div>
       </div>
 
-      <div class="item">
-        <span class="role">ML Engineer</span>
-        <span class="meta">BeDelighted · 2024 — 2025</span>
-        <p>Recommender systems, NLP pipelines, and ML-driven analytics.</p>
-      </div>
+      <div class="card" id="certs">
+        <div class="cardTitle">
+          <h2>Certifications</h2>
+          <span class="badge">credentials</span>
+        </div>
 
-      <div class="item">
-        <span class="role">Assistant Restaurant Manager</span>
-        <span class="meta">Hungry Jack’s · 2022 — Present</span>
-        <p>Operational analytics, forecasting, and systems optimisation.</p>
+        <div class="row">
+          <div class="roleLine">AWS Certified AI Practitioner</div>
+          <div class="sub">Foundational cloud + AI concepts.</div>
+        </div>
+        <div class="row">
+          <div class="roleLine">DeepLearning.AI — Neural Networks & Deep Learning</div>
+          <div class="sub">Core deep learning foundations.</div>
+        </div>
+        <div class="row">
+          <div class="roleLine">DeepLearning.AI — Convolutional Neural Networks</div>
+          <div class="sub">CNNs for vision tasks and patterns.</div>
+        </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section class="block">
-      <h2>Projects</h2>
-
-      <div class="item">
-        <span class="role">Skin Profile-Based Recommendation System</span>
-        <p>Personalised recommendations using collaborative + content-based filtering.</p>
+    <section class="card" id="projects" style="margin-top:14px;">
+      <div class="cardTitle">
+        <h2>Projects</h2>
+        <span class="badge">experiments</span>
       </div>
 
-      <div class="item">
-        <span class="role">Autonomous Navigation (ROSbot)</span>
-        <p>SLAM-based navigation with camera + LiDAR sensor fusion.</p>
+      <div class="row">
+        <div class="line1">
+          <div class="roleLine">Skin Profile-Based Recommendation System (Curu)</div>
+          <div class="time">Python</div>
+        </div>
+        <div class="sub">Personalised recommendations using collaborative + content-based filtering.</div>
+        <div class="tags">
+          <span class="tag violet">TensorFlow</span>
+          <span class="tag violet">Scikit-learn</span>
+        </div>
       </div>
 
-      <div class="item">
-        <span class="role">YOLO Training & Inference Pipeline</span>
-        <p>Dataset curation → training → ONNX export → inference validation.</p>
+      <div class="row">
+        <div class="line1">
+          <div class="roleLine">Autonomous Navigation (ROSbot 2.0)</div>
+          <div class="time">Robotics</div>
+        </div>
+        <div class="sub">SLAM + sensor fusion (camera + LiDAR) with A* / Dijkstra planning.</div>
+        <div class="tags">
+          <span class="tag green">ROS</span>
+          <span class="tag green">OpenCV</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="line1">
+          <div class="roleLine">YOLO Training & Inference Pipeline</div>
+          <div class="time">CV</div>
+        </div>
+        <div class="sub">Dataset → training → export → inference checks, tuned for reliability.</div>
+        <div class="tags">
+          <span class="tag cyan">YOLOv8</span>
+          <span class="tag violet">ONNX</span>
+          <span class="tag cyan">Highlighter</span>
+        </div>
       </div>
     </section>
 
-    <!-- CERTIFICATIONS -->
-    <section class="block">
-      <h2>Certifications</h2>
-
-      <ul class="certs">
-        <li>AWS Certified AI Practitioner</li>
-        <li>DeepLearning.AI — Neural Networks & Deep Learning</li>
-        <li>DeepLearning.AI — Convolutional Neural Networks</li>
-      </ul>
-    </section>
-
-    <footer>
-      © <span id="year"></span> Devansh Thawani
-    </footer>
-
-  </main>
+    <div class="footer">© <span id="y"></span> Devansh Thawani</div>
+  </div>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    // year
+    document.getElementById("y").textContent = new Date().getFullYear();
 
+    // Neural-graph background (subtle)
+    const canvas = document.getElementById("nn");
+    const ctx = canvas.getContext("2d");
+    let W, H, dpr;
+
+    function resize(){
+      dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+      W = canvas.width = Math.floor(window.innerWidth * dpr);
+      H = canvas.height = Math.floor(window.innerHeight * dpr);
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    const N = 70;
+    const pts = Array.from({length:N}, () => ({
+      x: Math.random(), y: Math.random(),
+      vx: (Math.random()*2-1)*0.00035,
+      vy: (Math.random()*2-1)*0.00035,
+      r: 1.2 + Math.random()*1.2
+    }));
+
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+
+      // fade layer
+      ctx.fillStyle = "rgba(7,10,18,0.18)";
+      ctx.fillRect(0,0,W,H);
+
+      // connections
+      for(let i=0;i<N;i++){
+        const a = pts[i];
+        a.x += a.vx; a.y += a.vy;
+
+        if(a.x < 0 || a.x > 1) a.vx *= -1;
+        if(a.y < 0 || a.y > 1) a.vy *= -1;
+
+        const ax = a.x*W, ay = a.y*H;
+
+        for(let j=i+1;j<N;j++){
+          const b = pts[j];
+          const dx = (a.x-b.x)*W;
+          const dy = (a.y-b.y)*H;
+          const dist = Math.sqrt(dx*dx+dy*dy);
+          if(dist < 160*dpr){
+            const t = 1 - dist/(160*dpr);
+            ctx.strokeStyle = `rgba(34,211,238,${0.12*t})`;
+            ctx.lineWidth = 1*dpr;
+            ctx.beginPath();
+            ctx.moveTo(ax, ay);
+            ctx.lineTo(b.x*W, b.y*H);
+            ctx.stroke();
+          }
+        }
+
+        // node
+        ctx.fillStyle = "rgba(167,139,250,0.22)";
+        ctx.beginPath();
+        ctx.arc(ax, ay, a.r*dpr, 0, Math.PI*2);
+        ctx.fill();
+      }
+
+      requestAnimationFrame(draw);
+    }
+    // start
+    ctx.fillStyle = "rgba(7,10,18,1)";
+    ctx.fillRect(0,0,W,H);
+    draw();
+  </script>
 </body>
 </html>
