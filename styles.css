@@ -1,15 +1,15 @@
 :root{
   --bg: #0b1020;
-  --panel: rgba(255,255,255,.06);
   --stroke: rgba(255,255,255,.10);
   --text: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.68);
   --muted2: rgba(255,255,255,.52);
-  --accent: #8b5cf6;
-  --accent2:#22d3ee;
   --shadow: 0 20px 70px rgba(0,0,0,.45);
   --r: 18px;
   --max: 980px;
+
+  --a1:#8b5cf6;
+  --a2:#22d3ee;
 }
 
 *{ box-sizing:border-box; }
@@ -73,42 +73,47 @@ a:hover{ text-decoration:underline; text-underline-offset: 5px; }
   letter-spacing: .2px;
 }
 
-/* UPDATED: better links row + truncation */
-.links{
+/* FIXED HERO LINKS LAYOUT */
+.heroLinks{
   margin-top: 14px;
   display:flex;
-  justify-content:center;
+  flex-direction: column;
   align-items:center;
   gap: 10px;
-  flex-wrap:wrap;
-  color: var(--muted2);
-  font-weight: 600;
 }
 
-.email{
-  max-width: 240px;
-  overflow: hidden;
+.btnRow{
+  display:flex;
+  justify-content:center;
+  gap: 10px;
+  flex-wrap:wrap;
+}
+
+.emailLine{
+  max-width: 360px;
+  overflow:hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   color: var(--muted2);
   font-weight: 600;
 }
 
-/* UPDATED: button-style links */
+/* button-style links */
 .btnLink{
-  padding: 8px 14px;
+  padding: 9px 14px;
   border-radius: 999px;
   border: 1px solid var(--stroke);
   background: rgba(255,255,255,.04);
   font-weight: 700;
   color: var(--muted);
-  transition: transform .15s ease, background .15s ease;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
   text-decoration: none !important;
 }
 .btnLink:hover{
   background: rgba(255,255,255,.08);
   transform: translateY(-1px);
   color: var(--text);
+  border-color: rgba(255,255,255,.16);
 }
 .btnLink.primary{
   border-color: rgba(139,92,246,.35);
@@ -264,7 +269,5 @@ a:hover{ text-decoration:underline; text-underline-offset: 5px; }
 @media (max-width: 620px){
   .row{ flex-direction:column; }
   .right{ align-self:flex-start; }
-  .email{ max-width: 100%; }
+  .emailLine{ max-width: 92vw; }
 }
-
-
