@@ -73,17 +73,50 @@ a:hover{ text-decoration:underline; text-underline-offset: 5px; }
   letter-spacing: .2px;
 }
 
+/* UPDATED: better links row + truncation */
 .links{
   margin-top: 14px;
   display:flex;
   justify-content:center;
+  align-items:center;
   gap: 10px;
   flex-wrap:wrap;
   color: var(--muted2);
   font-weight: 600;
 }
-.links .dot{ opacity:.65; }
 
+.email{
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--muted2);
+  font-weight: 600;
+}
+
+/* UPDATED: button-style links */
+.btnLink{
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--stroke);
+  background: rgba(255,255,255,.04);
+  font-weight: 700;
+  color: var(--muted);
+  transition: transform .15s ease, background .15s ease;
+  text-decoration: none !important;
+}
+.btnLink:hover{
+  background: rgba(255,255,255,.08);
+  transform: translateY(-1px);
+  color: var(--text);
+}
+.btnLink.primary{
+  border-color: rgba(139,92,246,.35);
+  background: linear-gradient(135deg, rgba(139,92,246,.35), rgba(34,211,238,.25));
+  color: rgba(255,255,255,.95);
+}
+
+/* nav pills */
 .nav{
   margin-top: 22px;
   display:flex;
@@ -231,5 +264,7 @@ a:hover{ text-decoration:underline; text-underline-offset: 5px; }
 @media (max-width: 620px){
   .row{ flex-direction:column; }
   .right{ align-self:flex-start; }
+  .email{ max-width: 100%; }
 }
+
 
