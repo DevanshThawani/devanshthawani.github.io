@@ -2,430 +2,167 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Devansh Thawani — ML Engineer / AI Engineer. Computer vision, YOLO, Highlighter SDK, end-to-end ML pipelines." />
-  <meta name="theme-color" content="#070B14" />
-  <title>Devansh Thawani | ML / AI Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Devansh Thawani</title>
+
+  <meta name="description" content="Devansh Thawani — ML Engineer. Experience, projects, certifications." />
+  <meta name="theme-color" content="#0b1020" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <!-- BACKGROUND -->
+  <!-- subtle background -->
   <div class="bg" aria-hidden="true">
-    <div class="glow g1"></div>
-    <div class="glow g2"></div>
-    <div class="glow g3"></div>
-    <div class="grid"></div>
-    <div class="noise"></div>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="grain"></div>
   </div>
 
-  <!-- NAV -->
-  <header class="navwrap">
-    <div class="navinner">
-      <a class="brand" href="#top" aria-label="Home">
-        <span class="brandMark"></span>
-        <span class="brandText">Devansh Thawani</span>
-      </a>
+  <main class="wrap">
+    <!-- header -->
+    <header class="hero">
+      <div class="name">Devansh Thawani</div>
+      <div class="role">Machine Learning Engineer · AI Engineer · Data Scientist</div>
 
-      <nav class="navlinks" id="navlinks" aria-label="Primary navigation">
+      <div class="links">
+        <a href="mailto:thawanidevansh@gmail.com">thawanidevansh@gmail.com</a>
+        <span class="dot">•</span>
+        <a href="https://www.linkedin.com/in/devansh-thawani" target="_blank" rel="noreferrer">LinkedIn</a>
+        <span class="dot">•</span>
+        <!-- Replace this with your GitHub URL -->
+        <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+
+      <nav class="nav">
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#contact" class="pillLink">Contact</a>
+        <a href="#certs">Certifications</a>
       </nav>
+    </header>
 
-      <button class="menuBtn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-    <div class="mobileNav" id="mobileNav" aria-hidden="true">
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact" class="pillLink">Contact</a>
-    </div>
-  </header>
-
-  <main id="top" class="container">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="heroLeft">
-        <div class="badge">
-          <span class="dot"></span>
-          ML Engineer • AI Engineer • Data Scientist
-        </div>
-
-        <h1>
-          I build <span class="accent">production-grade</span> ML systems —
-          <span class="accent">computer vision</span>, <span class="accent">YOLO</span>,
-          and <span class="accent">end-to-end pipelines</span>.
-        </h1>
-
-        <p class="lead">
-          I’m Devansh (“Dev”). I focus on taking real-world training runs and turning them into reliable inference:
-          data quality, geometry/output validation, model tuning, exports (ONNX), and deployment-minded workflows.
-        </p>
-
-        <div class="heroCtas">
-          <a class="btn primary" href="#projects">View Projects <span aria-hidden="true">→</span></a>
-          <a class="btn ghost" href="#experience">See Experience</a>
-        </div>
-
-        <div class="quickGrid">
-          <div class="quickCard">
-            <div class="k">Location</div>
-            <div class="v">Melbourne, VIC</div>
-          </div>
-          <div class="quickCard">
-            <div class="k">Email</div>
-            <div class="v"><a href="mailto:thawanidevansh@gmail.com">thawanidevansh@gmail.com</a></div>
-          </div>
-          <div class="quickCard">
-            <div class="k">LinkedIn</div>
-            <div class="v">
-              <a href="https://www.linkedin.com/in/devansh-thawani" target="_blank" rel="noreferrer">devansh-thawani</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <aside class="heroRight">
-        <div class="panel">
-          <div class="panelTop">
-            <div class="avatar" aria-hidden="true">DT</div>
-            <div>
-              <div class="panelKicker">Current</div>
-              <div class="panelTitle">ML Engineer @ Silverpond</div>
-              <div class="panelSub">Highlighter SDK • YOLO workflows • Inference validation</div>
-            </div>
-          </div>
-
-          <div class="chipRow">
-            <span class="chip">YOLOv8</span>
-            <span class="chip">Highlighter SDK</span>
-            <span class="chip">OpenCV</span>
-            <span class="chip">ONNX</span>
-            <span class="chip">FastAPI</span>
-            <span class="chip">AWS / GCP</span>
-          </div>
-
-          <div class="statRow">
-            <div class="stat">
-              <div class="num">4k+</div>
-              <div class="lbl">Images curated</div>
-            </div>
-            <div class="stat">
-              <div class="num">E2E</div>
-              <div class="lbl">Pipelines shipped</div>
-            </div>
-            <div class="stat">
-              <div class="num">CV</div>
-              <div class="lbl">Det/Seg/Cls</div>
-            </div>
-          </div>
-
-          <div class="panelCtas">
-            <a class="btn small primary" href="#contact">Contact</a>
-            <a class="btn small ghost" href="#skills">Stack</a>
-          </div>
-        </div>
-
-        <div class="panel subtle">
-          <div class="quoteMark">“</div>
-          <p class="quote">
-            I obsess over the details that matter in production: output formats, geometry edge cases,
-            dataset balance, and deployment constraints.
-          </p>
-          <div class="quoteBy">— Devansh</div>
-        </div>
-      </aside>
-    </section>
-
-    <!-- EXPERIENCE -->
+    <!-- Experience -->
     <section id="experience" class="section">
-      <div class="sectionHead">
-        <div>
-          <h2>Experience</h2>
-          <p>Impact-focused roles across ML/CV, product analytics, recommender systems, and operations.</p>
+      <div class="sectionTitle">Experience</div>
+
+      <div class="list">
+        <div class="row">
+          <div class="left">
+            <div class="primary">ML Engineer</div>
+            <div class="secondary">Silverpond · Melbourne</div>
+          </div>
+          <div class="right">Nov 2025 — Present</div>
         </div>
-      </div>
 
-      <div class="timeline">
-        <article class="titem">
-          <div class="tline"></div>
-          <div class="tcard">
-            <div class="tTop">
-              <div>
-                <h3>ML Engineer</h3>
-                <div class="sub">Silverpond · Melbourne, VIC</div>
-              </div>
-              <div class="when">Nov 2025 — Present</div>
-            </div>
-            <ul>
-              <li>Trained and tuned YOLO detection/segmentation/classification models in Highlighter (augments, configs, sampling, metrics-driven iteration).</li>
-              <li>Built repeatable workflows: dataset curation → training → ONNX export → inference checks with SDK.</li>
-              <li>Debugged inference failures (geometry, output mismatches, agent config issues) via logs + validation utilities.</li>
-              <li>Communicated results with clear summaries and deployment recommendations.</li>
-            </ul>
+        <div class="row">
+          <div class="left">
+            <div class="primary">ML Engineer</div>
+            <div class="secondary">BeDelighted · Melbourne</div>
           </div>
-        </article>
+          <div class="right">Jan 2024 — Mar 2025</div>
+        </div>
 
-        <article class="titem">
-          <div class="tline"></div>
-          <div class="tcard">
-            <div class="tTop">
-              <div>
-                <h3>ML Engineer</h3>
-                <div class="sub">BeDelighted · Melbourne, VIC</div>
-              </div>
-              <div class="when">Jan 2024 — Mar 2025</div>
-            </div>
-            <ul>
-              <li>Built recommender systems (collaborative + content-based) improving engagement and conversion.</li>
-              <li>Delivered predictive models for targeting; created BI dashboards + EDA for retention improvements.</li>
-              <li>Implemented MLOps automation (Docker, CI/CD, monitoring) for reliable delivery.</li>
-              <li>Applied NLP on 10k+ reviews to improve satisfaction-related insights and outcomes.</li>
-            </ul>
+        <div class="row">
+          <div class="left">
+            <div class="primary">Assistant Restaurant Manager</div>
+            <div class="secondary">Hungry Jack’s · South Yarra</div>
           </div>
-        </article>
-
-        <article class="titem">
-          <div class="tline"></div>
-          <div class="tcard">
-            <div class="tTop">
-              <div>
-                <h3>Assistant Restaurant Manager</h3>
-                <div class="sub">Hungry Jack’s · South Yarra, Melbourne</div>
-              </div>
-              <div class="when">May 2022 — Present</div>
-            </div>
-            <ul>
-              <li>Forecast demand and optimise rosters using sales/ops data; reduce labour cost through better planning.</li>
-              <li>Built KPI dashboards and introduced data-driven process improvements.</li>
-              <li>Supported POS/back-office systems (MMX, RAMP, Whoppernet) troubleshooting and continuity.</li>
-            </ul>
-          </div>
-        </article>
+          <div class="right">May 2022 — Present</div>
+        </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
+    <!-- Projects -->
     <section id="projects" class="section">
-      <div class="sectionHead">
-        <div>
-          <h2>Projects</h2>
-          <p>Selected work showcasing end-to-end ownership, leadership, and measurable outcomes.</p>
-        </div>
-      </div>
+      <div class="sectionTitle">Projects</div>
 
-      <div class="cardGrid">
+      <div class="cards">
         <article class="card">
           <div class="cardTop">
-            <h3>Skin Profile-Based Recommendation (Curu)</h3>
-            <span class="tag">Capstone · Lead</span>
+            <div class="cardTitle">Skin Profile-Based Recommendation System (Curu)</div>
+            <div class="tag">Lead</div>
           </div>
-          <p>
-            Led a team of 4 to build a personalised skincare recommender using collaborative + content-based filtering.
-            Owned the full lifecycle: data collection, cleaning, feature engineering, modelling, and stakeholder updates.
-          </p>
+          <div class="cardMeta">Personalised recommender using collaborative + content-based filtering.</div>
           <div class="chips">
-            <span class="chip">Python</span><span class="chip">TensorFlow</span><span class="chip">Scikit-learn</span>
+            <span>Python</span><span>TensorFlow</span><span>Scikit-learn</span>
           </div>
         </article>
 
         <article class="card">
           <div class="cardTop">
-            <h3>Autonomous Navigation (ROSbot 2.0)</h3>
-            <span class="tag">RMIT · Lead</span>
+            <div class="cardTitle">Autonomous Navigation (ROSbot 2.0)</div>
+            <div class="tag">Lead</div>
           </div>
-          <p>
-            Built autonomous navigation with SLAM and sensor fusion (camera + LiDAR), achieving strong positional accuracy and mapping precision.
-            Implemented path planning with A* and Dijkstra.
-          </p>
+          <div class="cardMeta">SLAM + sensor fusion (camera + LiDAR) with A* / Dijkstra path planning.</div>
           <div class="chips">
-            <span class="chip">ROS</span><span class="chip">OpenCV</span><span class="chip">SLAM</span><span class="chip">Sensor Fusion</span>
+            <span>ROS</span><span>OpenCV</span><span>SLAM</span>
           </div>
         </article>
 
         <article class="card">
           <div class="cardTop">
-            <h3>Text Summarisation & Sentiment (NLP)</h3>
-            <span class="tag">NLP</span>
+            <div class="cardTitle">Text Summarisation & Sentiment Analysis</div>
+            <div class="tag">NLP</div>
           </div>
-          <p>
-            Built TF-IDF/BoW summarisation and an RNN-LSTM sentiment classifier; optimised preprocessing for scale and used Transformers for efficiency.
-          </p>
+          <div class="cardMeta">TF-IDF summarisation + RNN-LSTM sentiment classification; Transformers for efficiency.</div>
           <div class="chips">
-            <span class="chip">TF-IDF</span><span class="chip">RNN-LSTM</span><span class="chip">Transformers</span>
+            <span>TF-IDF</span><span>RNN-LSTM</span><span>Transformers</span>
           </div>
         </article>
 
         <article class="card">
           <div class="cardTop">
-            <h3>Highlighter + YOLO Iteration Workflow</h3>
-            <span class="tag">Computer Vision</span>
+            <div class="cardTitle">Highlighter + YOLO Iteration Workflow</div>
+            <div class="tag">CV</div>
           </div>
-          <p>
-            Designed a repeatable workflow for dataset curation → training → export → inference validation, plus geometry checks for mask-to-polygon outputs
-            and robust troubleshooting of output/agent mismatches.
-          </p>
+          <div class="cardMeta">Dataset curation → training → ONNX export → inference validation workflow.</div>
           <div class="chips">
-            <span class="chip">YOLOv8</span><span class="chip">Highlighter SDK</span><span class="chip">ONNX Runtime</span>
+            <span>YOLOv8</span><span>Highlighter SDK</span><span>ONNX</span>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- SKILLS -->
-    <section id="skills" class="section">
-      <div class="sectionHead">
-        <div>
-          <h2>Skills</h2>
-          <p>Practical stack for model development, deployment, and analytics.</p>
-        </div>
-      </div>
+    <!-- Certifications -->
+    <section id="certs" class="section">
+      <div class="sectionTitle">Certifications</div>
 
-      <div class="skillGrid">
-        <div class="card compact">
-          <h3>ML & AI</h3>
-          <p>YOLOv8, TensorFlow, Keras, Scikit-learn, Transformers, NLTK</p>
+      <div class="list">
+        <div class="row simple">
+          <div class="left">
+            <div class="primary">AWS Certified AI Practitioner (Foundational)</div>
+            <div class="secondary">Amazon Web Services</div>
+          </div>
         </div>
-        <div class="card compact">
-          <h3>Computer Vision</h3>
-          <p>Highlighter SDK, OpenCV, augmentation, mask-to-polygon validation, ONNX</p>
+
+        <div class="row simple">
+          <div class="left">
+            <div class="primary">Neural Networks and Deep Learning</div>
+            <div class="secondary">DeepLearning.AI</div>
+          </div>
         </div>
-        <div class="card compact">
-          <h3>Data & BI</h3>
-          <p>SQL, EDA, Tableau, Power BI, Excel dashboards</p>
-        </div>
-        <div class="card compact">
-          <h3>Backend & Cloud</h3>
-          <p>FastAPI, Docker, CI/CD, AWS (EC2/S3/SageMaker), GCP, Kubernetes (basic)</p>
-        </div>
-        <div class="card compact">
-          <h3>Languages</h3>
-          <p>Python, Java, Kotlin, C#, SQL, R, Shell</p>
-        </div>
-        <div class="card compact">
-          <h3>Workflow</h3>
-          <p>Git, JIRA, Trello, Slack, Jupyter</p>
+
+        <div class="row simple">
+          <div class="left">
+            <div class="primary">Convolutional Neural Networks in TensorFlow</div>
+            <div class="secondary">DeepLearning.AI</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- EDUCATION -->
-    <section id="education" class="section">
-      <div class="sectionHead">
-        <div>
-          <h2>Education & Certifications</h2>
-          <p>Academic foundation with applied ML experience.</p>
-        </div>
-      </div>
-
-      <div class="twoCol">
-        <div class="card">
-          <h3>Education</h3>
-          <ul class="tight">
-            <li><strong>Master of Artificial Intelligence</strong> — RMIT University</li>
-            <li><strong>B.Tech Computer Science & Engineering</strong> — SRM Institute</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Certifications</h3>
-          <ul class="tight">
-            <li>Neural Networks and Deep Learning — DeepLearning.AI</li>
-            <li>Convolutional Neural Networks in TensorFlow — DeepLearning.AI</li>
-            <li>AWS Certified AI Practitioner (Foundational) — AWS</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="sectionHead">
-        <div>
-          <h2>Contact</h2>
-          <p>Open to ML/AI roles (CV, pipelines, MLOps). Fastest response via email.</p>
-        </div>
-      </div>
-
-      <div class="card contact">
-        <div class="contactGrid">
-          <div>
-            <div class="k">Email</div>
-            <div class="v"><a href="mailto:thawanidevansh@gmail.com">thawanidevansh@gmail.com</a></div>
-          </div>
-          <div>
-            <div class="k">Phone</div>
-            <div class="v"><a href="tel:+61422208667">+61 422 208 667</a></div>
-          </div>
-          <div>
-            <div class="k">LinkedIn</div>
-            <div class="v"><a href="https://www.linkedin.com/in/devansh-thawani" target="_blank" rel="noreferrer">devansh-thawani</a></div>
-          </div>
-          <div>
-            <div class="k">GitHub</div>
-            <div class="v"><a href="https://github.com/" target="_blank" rel="noreferrer">add-your-github</a></div>
-          </div>
-        </div>
-
-        <div class="contactCtas">
-          <a class="btn primary" href="mailto:thawanidevansh@gmail.com?subject=Portfolio%20Contact%20—%20Devansh">Email me <span aria-hidden="true">→</span></a>
-          <a class="btn ghost" href="#top">Back to top</a>
-        </div>
-      </div>
-
-      <footer class="footer">
-        <div class="footLeft">
-          <span class="tinyDot"></span>
-          <span>© <span id="year"></span> Devansh Thawani</span>
-        </div>
-        <div class="footRight">
-          <span class="footMuted">Built with GitHub Pages</span>
-        </div>
-      </footer>
-    </section>
+    <footer class="footer">
+      <span>© <span id="y"></span> Devansh Thawani</span>
+    </footer>
   </main>
 
   <script>
-    // year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // mobile menu
-    const btn = document.getElementById("menuBtn");
-    const mobileNav = document.getElementById("mobileNav");
-    const navlinks = document.getElementById("navlinks");
-
-    function closeMenu(){
-      btn.setAttribute("aria-expanded","false");
-      mobileNav.classList.remove("open");
-      mobileNav.setAttribute("aria-hidden","true");
-    }
-
-    btn.addEventListener("click", () => {
-      const open = btn.getAttribute("aria-expanded") === "true";
-      btn.setAttribute("aria-expanded", String(!open));
-      mobileNav.classList.toggle("open", !open);
-      mobileNav.setAttribute("aria-hidden", String(open));
-    });
-
-    // close on link click
-    mobileNav.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
-
-    // close on resize
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 720) closeMenu();
-    });
+    document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
+
