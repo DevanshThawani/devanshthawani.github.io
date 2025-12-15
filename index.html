@@ -3,204 +3,214 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Devansh Thawani — ML Engineer / AI Engineer / Data Scientist. Computer vision, YOLO, Highlighter SDK, end-to-end ML pipelines, AWS/GCP." />
-  <meta name="theme-color" content="#0b0f19" />
+  <meta name="description" content="Devansh Thawani — ML Engineer / AI Engineer. Computer vision, YOLO, Highlighter SDK, end-to-end ML pipelines." />
+  <meta name="theme-color" content="#070B14" />
   <title>Devansh Thawani | ML / AI Portfolio</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700;800&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  <!-- Background FX -->
-  <div class="bg">
-    <div class="orb orb-a"></div>
-    <div class="orb orb-b"></div>
+  <!-- BACKGROUND -->
+  <div class="bg" aria-hidden="true">
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+    <div class="glow g3"></div>
     <div class="grid"></div>
+    <div class="noise"></div>
   </div>
 
-  <header class="topbar">
-    <a class="brand" href="#top">
-      <span class="brand-dot"></span>
-      <span>Devansh Thawani</span>
-    </a>
+  <!-- NAV -->
+  <header class="navwrap">
+    <div class="navinner">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brandMark"></span>
+        <span class="brandText">Devansh Thawani</span>
+      </a>
 
-    <nav class="nav">
+      <nav class="navlinks" id="navlinks" aria-label="Primary navigation">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact" class="pillLink">Contact</a>
+      </nav>
+
+      <button class="menuBtn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobileNav" id="mobileNav" aria-hidden="true">
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
       <a href="#education">Education</a>
-      <a href="#contact" class="nav-cta">Contact</a>
-    </nav>
+      <a href="#contact" class="pillLink">Contact</a>
+    </div>
   </header>
 
   <main id="top" class="container">
     <!-- HERO -->
     <section class="hero">
-      <div class="hero-left">
-        <div class="pill">
-          <span class="status-dot"></span>
+      <div class="heroLeft">
+        <div class="badge">
+          <span class="dot"></span>
           ML Engineer • AI Engineer • Data Scientist
         </div>
 
         <h1>
-          Building production-ready ML systems —
-          <span class="grad">computer vision</span>, <span class="grad">YOLO</span>,
-          and <span class="grad">end-to-end pipelines</span>.
+          I build <span class="accent">production-grade</span> ML systems —
+          <span class="accent">computer vision</span>, <span class="accent">YOLO</span>,
+          and <span class="accent">end-to-end pipelines</span>.
         </h1>
 
         <p class="lead">
-          I’m Devansh (“Dev”), a Machine Learning Engineer with experience in YOLO-based
-          detection/segmentation/classification, Highlighter SDK workflows, and cloud deployment (AWS/GCP).
-          I focus on measurable improvements through scalable, deployment-minded AI solutions.
+          I’m Devansh (“Dev”). I focus on taking real-world training runs and turning them into reliable inference:
+          data quality, geometry/output validation, model tuning, exports (ONNX), and deployment-minded workflows.
         </p>
 
-        <div class="hero-actions">
-          <a class="btn primary" href="#projects">
-            View Projects
-            <span aria-hidden="true">→</span>
-          </a>
-          <a class="btn ghost" href="#experience">
-            Experience
-          </a>
+        <div class="heroCtas">
+          <a class="btn primary" href="#projects">View Projects <span aria-hidden="true">→</span></a>
+          <a class="btn ghost" href="#experience">See Experience</a>
         </div>
 
-        <div class="meta">
-          <div class="meta-item">
-            <div class="meta-k">Location</div>
-            <div class="meta-v">Melbourne, VIC</div>
+        <div class="quickGrid">
+          <div class="quickCard">
+            <div class="k">Location</div>
+            <div class="v">Melbourne, VIC</div>
           </div>
-          <div class="meta-item">
-            <div class="meta-k">Email</div>
-            <div class="meta-v"><a href="mailto:thawanidevansh@gmail.com">thawanidevansh@gmail.com</a></div>
+          <div class="quickCard">
+            <div class="k">Email</div>
+            <div class="v"><a href="mailto:thawanidevansh@gmail.com">thawanidevansh@gmail.com</a></div>
           </div>
-          <div class="meta-item">
-            <div class="meta-k">LinkedIn</div>
-            <div class="meta-v">
-              <a href="https://www.linkedin.com/in/devansh-thawani" target="_blank" rel="noreferrer">
-                linkedin.com/in/devansh-thawani
-              </a>
+          <div class="quickCard">
+            <div class="k">LinkedIn</div>
+            <div class="v">
+              <a href="https://www.linkedin.com/in/devansh-thawani" target="_blank" rel="noreferrer">devansh-thawani</a>
             </div>
           </div>
         </div>
       </div>
 
-      <aside class="hero-right">
-        <div class="card spotlight">
-          <div class="spotlight-top">
-            <div class="avatar" aria-hidden="true">
-              <span>DT</span>
-            </div>
+      <aside class="heroRight">
+        <div class="panel">
+          <div class="panelTop">
+            <div class="avatar" aria-hidden="true">DT</div>
             <div>
-              <div class="spot-title">Currently</div>
-              <div class="spot-sub">ML Engineer @ Silverpond (Highlighter)</div>
+              <div class="panelKicker">Current</div>
+              <div class="panelTitle">ML Engineer @ Silverpond</div>
+              <div class="panelSub">Highlighter SDK • YOLO workflows • Inference validation</div>
             </div>
           </div>
 
-          <div class="chips">
+          <div class="chipRow">
             <span class="chip">YOLOv8</span>
             <span class="chip">Highlighter SDK</span>
-            <span class="chip">ONNX</span>
             <span class="chip">OpenCV</span>
-            <span class="chip">AWS / GCP</span>
+            <span class="chip">ONNX</span>
             <span class="chip">FastAPI</span>
+            <span class="chip">AWS / GCP</span>
           </div>
 
-          <div class="metrics">
-            <div class="metric">
-              <div class="metric-num">4k+</div>
-              <div class="metric-lbl">Images curated</div>
+          <div class="statRow">
+            <div class="stat">
+              <div class="num">4k+</div>
+              <div class="lbl">Images curated</div>
             </div>
-            <div class="metric">
-              <div class="metric-num">E2E</div>
-              <div class="metric-lbl">Pipelines shipped</div>
+            <div class="stat">
+              <div class="num">E2E</div>
+              <div class="lbl">Pipelines shipped</div>
             </div>
-            <div class="metric">
-              <div class="metric-num">CV</div>
-              <div class="metric-lbl">Detection/Seg/Cls</div>
+            <div class="stat">
+              <div class="num">CV</div>
+              <div class="lbl">Det/Seg/Cls</div>
             </div>
           </div>
 
-          <div class="spotlight-cta">
-            <a class="btn small" href="#contact">Let’s talk</a>
-            <a class="btn small ghost" href="#skills">Tech stack</a>
+          <div class="panelCtas">
+            <a class="btn small primary" href="#contact">Contact</a>
+            <a class="btn small ghost" href="#skills">Stack</a>
           </div>
         </div>
 
-        <div class="card quote">
-          <div class="quote-mark">“</div>
-          <p>
-            I like turning messy real-world training runs into reliable inference —
-            by debugging data, geometry, outputs, and deployment constraints.
+        <div class="panel subtle">
+          <div class="quoteMark">“</div>
+          <p class="quote">
+            I obsess over the details that matter in production: output formats, geometry edge cases,
+            dataset balance, and deployment constraints.
           </p>
-          <div class="quote-name">— Devansh</div>
+          <div class="quoteBy">— Devansh</div>
         </div>
       </aside>
     </section>
 
     <!-- EXPERIENCE -->
     <section id="experience" class="section">
-      <div class="section-head">
-        <h2>Experience</h2>
-        <p>Impact-focused work across computer vision, recommender systems, NLP, and operations analytics.</p>
+      <div class="sectionHead">
+        <div>
+          <h2>Experience</h2>
+          <p>Impact-focused roles across ML/CV, product analytics, recommender systems, and operations.</p>
+        </div>
       </div>
 
       <div class="timeline">
-        <article class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-card card">
-            <div class="tl-top">
+        <article class="titem">
+          <div class="tline"></div>
+          <div class="tcard">
+            <div class="tTop">
               <div>
                 <h3>ML Engineer</h3>
                 <div class="sub">Silverpond · Melbourne, VIC</div>
               </div>
               <div class="when">Nov 2025 — Present</div>
             </div>
-            <ul class="bullets">
-              <li>Trained & optimised YOLO detection/segmentation/classification models in the Highlighter ML platform using tuning + augmentation + architecture refinements.</li>
-              <li>Built end-to-end workflows: dataset curation (4k+ images), preprocessing, training, ONNX export, and inference testing via Highlighter SDK.</li>
-              <li>Debugged inference failures (mask-to-polygon geometry, agent definition errors, output-format mismatches) via log analysis and output validation.</li>
-              <li>Collaborated with senior ML engineers; produced technical summaries and performance reports to support deployment decisions.</li>
+            <ul>
+              <li>Trained and tuned YOLO detection/segmentation/classification models in Highlighter (augments, configs, sampling, metrics-driven iteration).</li>
+              <li>Built repeatable workflows: dataset curation → training → ONNX export → inference checks with SDK.</li>
+              <li>Debugged inference failures (geometry, output mismatches, agent config issues) via logs + validation utilities.</li>
+              <li>Communicated results with clear summaries and deployment recommendations.</li>
             </ul>
           </div>
         </article>
 
-        <article class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-card card">
-            <div class="tl-top">
+        <article class="titem">
+          <div class="tline"></div>
+          <div class="tcard">
+            <div class="tTop">
               <div>
                 <h3>ML Engineer</h3>
                 <div class="sub">BeDelighted · Melbourne, VIC</div>
               </div>
               <div class="when">Jan 2024 — Mar 2025</div>
             </div>
-            <ul class="bullets">
-              <li>Delivered production-ready AI/data solutions with KPI-driven requirements gathering directly with Founder/CEO.</li>
-              <li>Built recommender systems (collaborative + content-based) improving engagement by <strong>15%</strong> and conversion by <strong>10%</strong>.</li>
-              <li>Developed predictive models (decision trees, gradient boosting) increasing targeted campaign effectiveness by <strong>12%</strong>.</li>
-              <li>Created BI dashboards and performed EDA to lift retention by <strong>8%</strong>; automated ETL + MLOps (Docker, CI/CD, monitoring).</li>
-              <li>Applied NLP on 10,000+ reviews (NLTK/spaCy) improving satisfaction scores by <strong>20%</strong>.</li>
+            <ul>
+              <li>Built recommender systems (collaborative + content-based) improving engagement and conversion.</li>
+              <li>Delivered predictive models for targeting; created BI dashboards + EDA for retention improvements.</li>
+              <li>Implemented MLOps automation (Docker, CI/CD, monitoring) for reliable delivery.</li>
+              <li>Applied NLP on 10k+ reviews to improve satisfaction-related insights and outcomes.</li>
             </ul>
           </div>
         </article>
 
-        <article class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-card card">
-            <div class="tl-top">
+        <article class="titem">
+          <div class="tline"></div>
+          <div class="tcard">
+            <div class="tTop">
               <div>
                 <h3>Assistant Restaurant Manager</h3>
                 <div class="sub">Hungry Jack’s · South Yarra, Melbourne</div>
               </div>
               <div class="when">May 2022 — Present</div>
             </div>
-            <ul class="bullets">
-              <li>Forecast demand using sales/ops data; optimise rosters and reduce labour costs.</li>
-              <li>Built KPI dashboards to guide operational decisions and performance.</li>
-              <li>Supported POS & back-office tech (MMX, RAMP, Whoppernet), troubleshooting issues to ensure continuity.</li>
-              <li>Implemented data-driven process improvements to improve efficiency and customer retention.</li>
+            <ul>
+              <li>Forecast demand and optimise rosters using sales/ops data; reduce labour cost through better planning.</li>
+              <li>Built KPI dashboards and introduced data-driven process improvements.</li>
+              <li>Supported POS/back-office systems (MMX, RAMP, Whoppernet) troubleshooting and continuity.</li>
             </ul>
           </div>
         </article>
@@ -209,76 +219,66 @@
 
     <!-- PROJECTS -->
     <section id="projects" class="section">
-      <div class="section-head">
-        <h2>Projects</h2>
-        <p>Selected work highlighting leadership, end-to-end development, and measurable outcomes.</p>
+      <div class="sectionHead">
+        <div>
+          <h2>Projects</h2>
+          <p>Selected work showcasing end-to-end ownership, leadership, and measurable outcomes.</p>
+        </div>
       </div>
 
-      <div class="cards">
-        <article class="card project">
-          <div class="project-top">
-            <h3>Skin Profile-Based Recommendation System (Curu)</h3>
-            <div class="tag">Capstone · Project Lead</div>
+      <div class="cardGrid">
+        <article class="card">
+          <div class="cardTop">
+            <h3>Skin Profile-Based Recommendation (Curu)</h3>
+            <span class="tag">Capstone · Lead</span>
           </div>
           <p>
             Led a team of 4 to build a personalised skincare recommender using collaborative + content-based filtering.
             Owned the full lifecycle: data collection, cleaning, feature engineering, modelling, and stakeholder updates.
           </p>
-          <div class="stack">
-            <span class="chip">Python</span>
-            <span class="chip">TensorFlow</span>
-            <span class="chip">Scikit-learn</span>
+          <div class="chips">
+            <span class="chip">Python</span><span class="chip">TensorFlow</span><span class="chip">Scikit-learn</span>
           </div>
         </article>
 
-        <article class="card project">
-          <div class="project-top">
-            <h3>AI/Robotics Autonomous Navigation (ROSbot 2.0)</h3>
-            <div class="tag">RMIT · Project Lead</div>
+        <article class="card">
+          <div class="cardTop">
+            <h3>Autonomous Navigation (ROSbot 2.0)</h3>
+            <span class="tag">RMIT · Lead</span>
           </div>
           <p>
-            Built an autonomous navigation system with SLAM and sensor fusion (camera + LiDAR), achieving
-            <strong>&gt;95%</strong> positional accuracy and <strong>&gt;90%</strong> mapping precision. Implemented A* and Dijkstra for routing.
+            Built autonomous navigation with SLAM and sensor fusion (camera + LiDAR), achieving strong positional accuracy and mapping precision.
+            Implemented path planning with A* and Dijkstra.
           </p>
-          <div class="stack">
-            <span class="chip">ROS</span>
-            <span class="chip">OpenCV</span>
-            <span class="chip">SLAM</span>
-            <span class="chip">Sensor Fusion</span>
+          <div class="chips">
+            <span class="chip">ROS</span><span class="chip">OpenCV</span><span class="chip">SLAM</span><span class="chip">Sensor Fusion</span>
           </div>
         </article>
 
-        <article class="card project">
-          <div class="project-top">
-            <h3>Text Summarisation & Sentiment Analysis</h3>
-            <div class="tag">NLP Developer</div>
+        <article class="card">
+          <div class="cardTop">
+            <h3>Text Summarisation & Sentiment (NLP)</h3>
+            <span class="tag">NLP</span>
           </div>
           <p>
-            Built a TF-IDF + Bag-of-Words summarisation pipeline and an RNN-LSTM sentiment classifier
-            (85% sentiment accuracy). Optimised preprocessing for large datasets and leveraged Hugging Face Transformers for efficiency.
+            Built TF-IDF/BoW summarisation and an RNN-LSTM sentiment classifier; optimised preprocessing for scale and used Transformers for efficiency.
           </p>
-          <div class="stack">
-            <span class="chip">TF-IDF</span>
-            <span class="chip">RNN-LSTM</span>
-            <span class="chip">Hugging Face</span>
-            <span class="chip">Pandas/NumPy</span>
+          <div class="chips">
+            <span class="chip">TF-IDF</span><span class="chip">RNN-LSTM</span><span class="chip">Transformers</span>
           </div>
         </article>
 
-        <article class="card project">
-          <div class="project-top">
-            <h3>Highlighter + YOLO Model Iteration Workflow</h3>
-            <div class="tag">Computer Vision</div>
+        <article class="card">
+          <div class="cardTop">
+            <h3>Highlighter + YOLO Iteration Workflow</h3>
+            <span class="tag">Computer Vision</span>
           </div>
           <p>
-            Designed a repeatable workflow for dataset curation → training → ONNX export → inference validation, plus
-            geometry checks for mask-to-polygon outputs and robust troubleshooting of agent/output mismatches.
+            Designed a repeatable workflow for dataset curation → training → export → inference validation, plus geometry checks for mask-to-polygon outputs
+            and robust troubleshooting of output/agent mismatches.
           </p>
-          <div class="stack">
-            <span class="chip">YOLOv8</span>
-            <span class="chip">Highlighter SDK</span>
-            <span class="chip">ONNX Runtime</span>
-            <span class="chip">Mask-to-Polygon</span>
+          <div class="chips">
+            <span class="chip">YOLOv8</span><span class="chip">Highlighter SDK</span><span class="chip">ONNX Runtime</span>
           </div>
         </article>
       </div>
@@ -286,4 +286,146 @@
 
     <!-- SKILLS -->
     <section id="skills" class="section">
-      <
+      <div class="sectionHead">
+        <div>
+          <h2>Skills</h2>
+          <p>Practical stack for model development, deployment, and analytics.</p>
+        </div>
+      </div>
+
+      <div class="skillGrid">
+        <div class="card compact">
+          <h3>ML & AI</h3>
+          <p>YOLOv8, TensorFlow, Keras, Scikit-learn, Transformers, NLTK</p>
+        </div>
+        <div class="card compact">
+          <h3>Computer Vision</h3>
+          <p>Highlighter SDK, OpenCV, augmentation, mask-to-polygon validation, ONNX</p>
+        </div>
+        <div class="card compact">
+          <h3>Data & BI</h3>
+          <p>SQL, EDA, Tableau, Power BI, Excel dashboards</p>
+        </div>
+        <div class="card compact">
+          <h3>Backend & Cloud</h3>
+          <p>FastAPI, Docker, CI/CD, AWS (EC2/S3/SageMaker), GCP, Kubernetes (basic)</p>
+        </div>
+        <div class="card compact">
+          <h3>Languages</h3>
+          <p>Python, Java, Kotlin, C#, SQL, R, Shell</p>
+        </div>
+        <div class="card compact">
+          <h3>Workflow</h3>
+          <p>Git, JIRA, Trello, Slack, Jupyter</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section">
+      <div class="sectionHead">
+        <div>
+          <h2>Education & Certifications</h2>
+          <p>Academic foundation with applied ML experience.</p>
+        </div>
+      </div>
+
+      <div class="twoCol">
+        <div class="card">
+          <h3>Education</h3>
+          <ul class="tight">
+            <li><strong>Master of Artificial Intelligence</strong> — RMIT University</li>
+            <li><strong>B.Tech Computer Science & Engineering</strong> — SRM Institute</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Certifications</h3>
+          <ul class="tight">
+            <li>Neural Networks and Deep Learning — DeepLearning.AI</li>
+            <li>Convolutional Neural Networks in TensorFlow — DeepLearning.AI</li>
+            <li>AWS Certified AI Practitioner (Foundational) — AWS</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="sectionHead">
+        <div>
+          <h2>Contact</h2>
+          <p>Open to ML/AI roles (CV, pipelines, MLOps). Fastest response via email.</p>
+        </div>
+      </div>
+
+      <div class="card contact">
+        <div class="contactGrid">
+          <div>
+            <div class="k">Email</div>
+            <div class="v"><a href="mailto:thawanidevansh@gmail.com">thawanidevansh@gmail.com</a></div>
+          </div>
+          <div>
+            <div class="k">Phone</div>
+            <div class="v"><a href="tel:+61422208667">+61 422 208 667</a></div>
+          </div>
+          <div>
+            <div class="k">LinkedIn</div>
+            <div class="v"><a href="https://www.linkedin.com/in/devansh-thawani" target="_blank" rel="noreferrer">devansh-thawani</a></div>
+          </div>
+          <div>
+            <div class="k">GitHub</div>
+            <div class="v"><a href="https://github.com/" target="_blank" rel="noreferrer">add-your-github</a></div>
+          </div>
+        </div>
+
+        <div class="contactCtas">
+          <a class="btn primary" href="mailto:thawanidevansh@gmail.com?subject=Portfolio%20Contact%20—%20Devansh">Email me <span aria-hidden="true">→</span></a>
+          <a class="btn ghost" href="#top">Back to top</a>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="footLeft">
+          <span class="tinyDot"></span>
+          <span>© <span id="year"></span> Devansh Thawani</span>
+        </div>
+        <div class="footRight">
+          <span class="footMuted">Built with GitHub Pages</span>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    // year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // mobile menu
+    const btn = document.getElementById("menuBtn");
+    const mobileNav = document.getElementById("mobileNav");
+    const navlinks = document.getElementById("navlinks");
+
+    function closeMenu(){
+      btn.setAttribute("aria-expanded","false");
+      mobileNav.classList.remove("open");
+      mobileNav.setAttribute("aria-hidden","true");
+    }
+
+    btn.addEventListener("click", () => {
+      const open = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!open));
+      mobileNav.classList.toggle("open", !open);
+      mobileNav.setAttribute("aria-hidden", String(open));
+    });
+
+    // close on link click
+    mobileNav.querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
+
+    // close on resize
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 720) closeMenu();
+    });
+  </script>
+</body>
+</html>
